@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { ConversationSettings } from '../types';
+import type { ConversationSettings } from '../../types';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -32,7 +32,7 @@ export default function SettingsModal({
 
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black/75 flex items-center justify-center z-50"
       onClick={onClose}
     >
       <div
