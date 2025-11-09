@@ -46,5 +46,6 @@ export interface ConversationSettings {
   streamSettings?: {
     
   };
+  customFields?: Record<string, unknown>;
 }
 

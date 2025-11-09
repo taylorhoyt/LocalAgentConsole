@@ -73,12 +73,22 @@ export default function ChatInterface() {
 
       try {
         const endpointUrl = normalizeEndpoint(settings.endpoint);
+        
+        // Build request body with prompt and custom fields
+        const requestBody: Record<string, unknown> = {
+          prompt: content,
+          ...(settings.customFields || {}),
+        };
+        
+        console.log('Request body:', requestBody);
+        console.log('Custom fields from settings:', settings.customFields);
+        
         const response = await fetch(endpointUrl, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ prompt: content }),
+          body: JSON.stringify(requestBody),
         });
 
         if (!response.ok) {
@@ -240,7 +250,7 @@ export default function ChatInterface() {
         setIsStreaming(false);
       }
     },
-    [settings.endpoint]
+    [settings]
   );
 
   const handleClearConversation = useCallback(() => {
