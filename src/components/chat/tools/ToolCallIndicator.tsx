@@ -36,7 +36,7 @@ export default function ToolCallIndicator({
   };
 
   return (
-    <div className="inline-block">
+    <div className="inline-block" key={toolCallId}>
       <button
         onClick={() => {
           setIsExpanded(!isExpanded);
