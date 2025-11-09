@@ -42,7 +42,7 @@ export default function ChatInput({ onSend, disabled = false }: ChatInputProps) 
         onKeyDown={handleKeyDown}
         disabled={disabled}
         placeholder="Type your message... (Enter to send, Shift+Enter for newline)"
-        className="flex-1 font-mono text-sm text-white bg-gray-800 border border-gray-700 rounded p-2 resize-none focus:outline-none focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex-1 font-mono text-sm max-h-24 text-white bg-gray-800 border border-gray-700 rounded p-2 resize-none focus:outline-none focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
         rows={1}
       />
       <button
