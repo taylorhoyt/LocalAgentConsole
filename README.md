@@ -1,4 +1,4 @@
-# Basic Streaming Agent Interface
+# Local Agent Console
 
 A React-based chat interface for streaming agent interactions.
 
@@ -26,15 +26,18 @@ The application will be available at `http://localhost:5173` (or the next availa
 2. Configure the following:
 
    - **Endpoint URL**: The API endpoint for agent invocations
+
      - Default: `http://localhost:8080/invocations`
      - For localhost:8080 endpoints, a proxy is automatically configured
-  
+
    - **Credentials** (optional):
+
      - Access Key ID
      - Secret Access Key
      - Region (e.g., `us-east-1`)
 
    - **Prompt Wrapper Template** (optional): Customize how user prompts are wrapped before being sent to the API
+
      - Use `{user prompt}` or `{user_prompt}` as placeholders for the actual user input
      - Example: `<user_prompt> {user prompt} </user_prompt>` will wrap the user's message in XML tags
      - Leave empty to send the prompt as-is without any wrapping
@@ -63,10 +66,12 @@ Settings are automatically saved and will persist across browser sessions.
 ### Request Body Format
 
 When sending a message, the request body sent to the endpoint includes:
+
 - `prompt`: The user's message content (wrapped according to the Prompt Wrapper Template if configured)
 - Any custom fields configured in the Settings modal
 
 Example request body (without prompt wrapper):
+
 ```json
 {
   "prompt": "Hello, how are you?",
@@ -77,6 +82,7 @@ Example request body (without prompt wrapper):
 ```
 
 Example request body (with prompt wrapper template `<user_prompt> {user prompt} </user_prompt>`):
+
 ```json
 {
   "prompt": "<user_prompt> Hello, how are you? </user_prompt>",
