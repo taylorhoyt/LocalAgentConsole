@@ -47,5 +47,6 @@ export interface ConversationSettings {
     
   };
   customFields?: Record<string, unknown>;
+  promptWrapper?: string;
 }
 
