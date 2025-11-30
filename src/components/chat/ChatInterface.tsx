@@ -7,6 +7,7 @@ import StreamingIndicator from '../indicators/StreamingIndicator';
 import SettingsModal from '../modals/SettingsModal';
 import type { Message, ToolCall, ConversationSettings } from '../../types';
 import { StreamingParser } from '../../utils/streamParser';
+import { applyPromptWrapper } from '../../utils/promptWrapper';
 
 const defaultSettings: ConversationSettings = {
   endpoint: 'http://localhost:8080/invocations',
@@ -81,9 +82,12 @@ export default function ChatInterface() {
       try {
         const endpointUrl = normalizeEndpoint(settings.endpoint);
         
+        // Apply prompt wrapper if configured
+        const wrappedPrompt = applyPromptWrapper(content, settings.promptWrapper);
+        
         // Build request body with prompt and custom fields
         const requestBody: Record<string, unknown> = {
-          prompt: content,
+          prompt: wrappedPrompt,
           ...(settings.customFields || {}),
         };
         
