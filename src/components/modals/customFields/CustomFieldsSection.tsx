@@ -80,7 +80,7 @@ export default function CustomFieldsSection({
   };
 
   return (
-    <div className="border-t border-gray-700 pt-4 mt-4">
+    <div className="border-t border-gray-700 pt-4 my-4">
       <div className="flex items-center justify-between mb-3">
         <label className="block text-sm text-gray-300">Custom Request Fields</label>
         <div className="flex items-center gap-2">
